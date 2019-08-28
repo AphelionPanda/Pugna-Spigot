@@ -1,0 +1,104 @@
+name: "Pugna"
+main: "online.christopherstocks.pugna.Pugna"
+version: "6.1.0.0"
+description: "The Ultimate Minecraft Roleplay Combat Plugin"
+authors: ["Highchrisben", "Bean274"]
+website: "https://christopherstocks.online"
+softdepend: [PlaceholderAPI]
+
+permissions:
+  pugna.player:
+    description: "The Base Pugna Permission"
+    default: true
+    children:
+      - "pugna.use"
+      - "pugna.roll"
+      - "pugna.slot"
+      - "pugna.race"
+      - "pugna.race.view"
+      - "pugna.race.*"
+      - "pugna.class.*"
+      - "pugna.class"
+      - "pugna.class.view"
+      - "pugna.display"
+      - "pugna.points"
+      - "pugna.points.spend"
+  pugna.staff:
+    description: "The Staff Pugna Permission"
+    default: op
+    children:
+      - "pugna.reload"
+      - "pugna.slot.other"
+      - "pugna.race.other"
+      - "pugna.class.other"
+      - "pugna.debug"
+      - "pugna.update"
+      - "pugna.display.other"
+      - "pugna.reload"
+      - "pugna.reset.other"
+      - "pugna.delete"
+      - "pugna.reset"
+  pugna.points.manager:
+    description: "The Point Manager Permission"
+    default: op
+    children:
+      - "pugna.points.view"
+      - "pugna.points.reset"
+      - "pugna.points.add"
+      - "pugna.points.remove"
+  pugna.roll:
+    description: "Allows to use rolling"
+  pugna.points:
+    description: "Allows for viewing of points"
+  pugna.points.view:
+    description: "Allows for viewing of other's points"
+  pugna.points.spend:
+    description: "Allows for spending of points"
+  pugna.points.reset:
+    description: "Allows for resetting of points to be reallocated"
+  pugna.points.add:
+    description: "Allows for adding points to be allocated"
+  pugna.points.remove:
+    description: "Allows for removing of points from allocation, requires reallocation or remaining"
+  pugna.use:
+    description: "Allows use of the pugna command and creation of storage for a player - required"
+  pugna.reload:
+    description: "Allows for reloading"
+  pugna.slot:
+    description: "Allows for using the slot command, if enabled"
+  pugna.slot.other:
+    description: "Allows for altering the slot of another"
+  pugna.race:
+    description: "Allows for selecting race"
+  pugna.race.*:
+    description: "Allows for selecting all races configured"
+  pugna.race.other:
+    description: "Allows for setting of anothers race to one which permission is granted"
+  pugna.debug:
+    description: "Allows for debugging the config using /pugna debug"
+  pugna.update:
+    description: "Notifies if there is an update or not on each login for anyone with the permission"
+  pugna.display:
+    description: "Allows for viewing; stats, points, race and class!"
+  pugna.display.other:
+    description: "Allows for viewing others display"
+  pugna.race.view:
+    description: "Allows for viewing others race"
+  pugna.class.view:
+    description: "Allows for viewing others class"
+  pugna.reset:
+    description: "Allows for resetting their Pugna slot"
+  pugna.reset.other:
+    description: "Allows for resetting other's Pugna slots"
+  pugna.delete:
+    description: "Allows for deleting old records (using inactive days from config)"
+
+commands:
+  roll:
+    description: The Base Roll Command
+    permission: pugna.roll
+    permission-message: "You do not have permission to use this command!"
+  pugna:
+    description: The Base Pugna Command
+    permission: pugna.use
+    permission-message: "You do not have permission to use this command!"

@@ -1,0 +1,267 @@
+# Storage
+## Connection Details
+## (Note: Do not change these details while the plugin is enabled)
+host: "localhost"
+port: 3306
+database: "Pugna"
+table_prefix: "pugna_"
+username: "root"
+password: "password"
+
+## MySQL is currently the only Storage supported - SQLite is in testing, please report if it works.
+storage: MySQL
+
+## How often should inactive players be purged (in days) - 0 is never
+## This occurs once per restart of the Plugin/On command
+inactive-days: 0
+
+# Are Stats/Races/Classes/Points enabled for Rolling
+stats-enabled: true
+
+# The maximum of a die, side and modifier
+dice-max: "20d100"
+mod-max: 100
+
+# The Default Dice when /roll is initiated or an invalid input is used
+dice-default: "1d20"
+
+# The Range at which rolls will broadcast
+range: 60
+
+# This will be used to delete stats which are not in use
+stats:
+  - Willpower
+  - Intelligence
+  - Wisdom
+  - Accuracy
+  - Agility
+  - Dexterity
+  - Expertise
+  - Endurance
+  - Might
+
+# Allows the Plugin to notify you when updates are available
+update-enabled: true
+
+# Allows for updates of beta versions, this will not matter if you are running a beta already
+beta-version: false
+
+# Allocates a Player the amount of slots defined - Setting this to 0 or below will default to 1
+slots: 1
+
+# Set this to true if another plugin is handling slots through the Storage Methods
+slot-handler: false
+
+# Allows for PlaceholderAPI to be used, this will alter itself
+placeholders: false
+
+# New Messages
+update: "&8[&2Pugna&8]&2 A New Update is available"
+no-update: "&8[&2Pugna&8]&2 No New Update is available"
+sender: "&8[&2Pugna&8]&2 You have to be a player"
+rolling: "&8[&2Pugna&8]&2 :display: (&8:player:&2) rolled :result: (&8:dice::mod:&2)"
+stat-rolling: "&8[&2Pugna&8]&2 :display: (&8:player:&2) rolled :result: (&8:dice::mod:&2) in :stat: &8(&2:statMod:&8)"
+help: "&8[&2Pugna&8]&2 Please use '/pugna help' for more information about each command!"
+slot-disabled: "&8[&2Pugna&8]&2 Slots are being handled by another plugin"
+slot-singular: "&8[&2Pugna&8]&2 You can only access one slot"
+permission: "&8[&2Pugna&8]&2 You do not have the correct permission for this"
+slot: "&8[&2Pugna&8]&2 Currently using Slot :slot:"
+slot-invalid: "&8[&2Pugna&8]&2 The slot you entered is not in use or inaccessible"
+player-exist: "&8[&2Pugna&8]&2 That player does not seem to exist at the current moment"
+switch: "&8[&2Pugna&8]&2 You are now using Slot :slot:"
+switch-other: "&8[&2Pugna&8]&2 They are now using Slot :slot:"
+reload: "&8[&2Pugna&8]&2 The Config has now been reloaded"
+race: "&8[&2Pugna&8]&2 You are a member of the :race: &2race"
+race-switch: "&8[&2Pugna&8]&2 You are now a member of the :race: &2race"
+race-switch-other: "&8[&2Pugna&8]&2 They are now a member of the :race: &2race"
+race-invalid: "&8[&2Pugna&8]&2 That race does not exist"
+class: "&8[&2Pugna&8]&2 You are a member of the :class: &2class"
+class-switch: "&8[&2Pugna&8]&2 You are now a member of the :class: &2class"
+class-switch-other: "&8[&2Pugna&8]&2 They are now a member of the :class: &2class"
+class-invalid: "&8[&2Pugna&8]&2 That class does not exist"
+help-invalid: "&8[&2Pugna&8]&2 That page does not exist or is not in use"
+reset: "&8[&2Pugna&8]&2 Your slot :slot: has been reset"
+reset-other: "&8[&2Pugna&8]&2 That players slot :slot: has been reset"
+points: "&8[&2Pugna&8]&2 You currently have :points: point(s)"
+points-other: "&8[&2Pugna&8]&2 That player currently has :points: point(s) for slot :slot:"
+points-spend: "&8[&2Pugna&8]&2 You have increased :stat: by :amount:"
+points-empty: "&8[&2Pugna&8]&2 You do not have enough points for that"
+delete: "&8[&2Pugna&8]&2 All inactive players are now being deleted"
+delete-0: "&8[&2Pugna&8]&2 Inactive Days has not been configured"
+stat-invalid: "&8[&2Pugna&8]&2 That stat is invalid"
+points-invalid: "&8[&2Pugna&8]&2 That amount of points is invalid"
+points-reset: "&8[&2Pugna&8]&2 Your slot :slot: points have been reset"
+points-reset-other: "&8[&2Pugna&8]&2 That players slot :slot: points have been reset"
+points-alter: "&8[&2Pugna&8]&2 Your slot :slot: points have been altered"
+points-alter-other: "&8[&2Pugna&8]&2 That players slot :slot: points have been altered"
+
+display:
+  - "&8[&2Pugna&8] &2:player:'s Stats for Slot :slot:"
+  - "&2Might: &c:MightTotal: &8| &2Endurance: &c:EnduranceTotal: &8| &2Expertise: &c:ExpertiseTotal:"
+  - "&2Dexterity: &a:DexterityTotal: &8| &2Agility: &a:AgilityTotal: &8| &2Accuracy: &a:AccuracyTotal:"
+  - "&2Wisdom: &b:WisdomTotal: &8| &2Willpower: &b:WillpowerTotal: &8| &2Intelligence: &b:IntelligenceTotal:"
+  - "&2Race: &f:race: &8| &2Class: &f:class: &8| &2Points: &f:points:"
+
+# Help Pages
+help-items: 12
+help-pages:
+  - "&8[&2Pugna Help&8]&2 :page: of &8:pages:"
+  - "&8 o - means optional | <-> means switchable | a - means alternate"
+  - "&2/pugna help [page] - shows the help command"
+  - "&8/pugna debug ...parameters... - displays the config values"
+  - "&2/pugna slot [o:player]<->[o:slot] - shows and sets the slots of self/others "
+  - "&8/pugna reload - reloads the config"
+  - "&2/pugna race [o:race]<->[o:player] - shows and sets the race of self/others "
+  - "&8/pugna class [o:class]<->[o:player] - shows and sets the class of self/others"
+  - "&2/pugna reset [o:slot]<->[o:player] - resets all of self/others slot"
+  - "&8/pugna delete - deletes inactive players"
+  - "&2/pugna points [spend/reset/remove/add/o:player] [ao:stat}<->[ao:amount]<->[ao:player] - shows, spends, resets, removes and adds points"
+  - "&8/roll [o:stat]<->[o:die]<->[o:modifier] - allows for rolling of specific dice with modifiers/stats"
+
+# Classes
+ClassList:
+  - Child
+  - Warrior
+  - Wizard
+  - Ranger
+
+Empty:
+  name: "Empty"
+  Might: 0
+  Endurance: 0
+  Expertise: 0
+  Dexterity: 0
+  Agility: 0
+  Accuracy: 0
+  Wisdom: 0
+  Willpower: 0
+  Intelligence: 0
+
+Child:
+  name: "&fChild"
+  Might: -1
+  Endurance: -1
+  Expertise: -1
+  Dexterity: -1
+  Agility: -1
+  Accuracy: -1
+  Wisdom: -1
+  Willpower: -1
+  Intelligence: -1
+
+Warrior:
+  name: "&cWarrior"
+  Might: 4
+  Endurance: 4
+  Expertise: 4
+  Dexterity: 0
+  Agility: 0
+  Accuracy: 0
+  Wisdom: 0
+  Willpower: 0
+  Intelligence: 0
+
+Wizard:
+  name: "&bWizard"
+  Might: 0
+  Endurance: 0
+  Expertise: 0
+  Dexterity: 0
+  Agility: 0
+  Accuracy: 0
+  Wisdom: 4
+  Willpower: 4
+  Intelligence: 4
+
+Ranger:
+  name: "&aRanger"
+  Might: 0
+  Endurance: 0
+  Expertise: 0
+  Dexterity: 4
+  Agility: 4
+  Accuracy: 4
+  Wisdom: 0
+  Willpower: 0
+  Intelligence: 0
+
+# Races
+RaceList:
+  - Human
+  - Elf
+  - Dwarf
+  - Vulpe
+  - Gnome
+  - DarkElf
+
+Human:
+  name: "&fHuman"
+  Might: 2
+  Endurance: 1
+  Expertise: 2
+  Dexterity: 1
+  Agility: 1
+  Accuracy: 1
+  Wisdom: 0
+  Willpower: 1
+  Intelligence: 0
+
+Elf:
+  name: "&6Elf"
+  Might: 0
+  Endurance: 0
+  Expertise: 0
+  Dexterity: 1
+  Agility: 1
+  Accuracy: 1
+  Wisdom: 2
+  Willpower: 2
+  Intelligence: 2
+
+DarkElf:
+  name: "&8Dark Elf"
+  Might: 0
+  Endurance: 0
+  Expertise: 0
+  Dexterity: 1
+  Agility: 1
+  Accuracy: 1
+  Wisdom: 2
+  Willpower: 2
+  Intelligence: 2
+
+Dwarf:
+  name: "&7Dwarf"
+  Might: 2
+  Endurance: 2
+  Expertise: 2
+  Dexterity: 0
+  Agility: 0
+  Accuracy: 1
+  Wisdom: 1
+  Willpower: 0
+  Intelligence: 1
+
+Vulpe:
+  name: "&eVulpe"
+  Might: 0
+  Endurance: 0
+  Expertise: 0
+  Dexterity: 2
+  Agility: 2
+  Accuracy: 0
+  Wisdom: 2
+  Willpower: 2
+  Intelligence: 1
+
+Gnome:
+  name: "&aGnome"
+  Might: 0
+  Endurance: 0
+  Expertise: 0
+  Dexterity: 2
+  Agility: 2
+  Accuracy: 2
+  Wisdom: 1
+  Willpower: 0
+  Intelligence: 2
