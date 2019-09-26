@@ -6,7 +6,7 @@
 
     <groupId>online.christopherstocks.pugna</groupId>
     <artifactId>Pugna</artifactId>
-    <version>6.1.0.0</version>
+    <version>6.1.0.2</version>
 
     <properties>
         <kotlin.version>1.3.50</kotlin.version>

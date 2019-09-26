@@ -23,7 +23,7 @@ class Pugna : JavaPlugin() {
         pluginManager.registerEvents(PlayerJoin(), this)
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
             getConfig().set("placeholders", true)
-            Placeholders(this).hook()
+            Placeholders().register()
         } else getConfig().set("placeholders", false)
         if (config.getInt("slots") < 1) config.set("slots", 1)
         getCommand("roll")!!.setExecutor(RollCommand())
